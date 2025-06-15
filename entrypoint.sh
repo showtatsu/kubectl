@@ -3,7 +3,7 @@
 set -e
 
 echo "/usr/local/bin/kubectl" >> $GITHUB_PATH
-source /subshell/create-kubeconfig.sh
+source /scripts/create-kubeconfig.sh
 
 if [ -n "$script" ]; then
     echo "$script" > /tmp/script.sh

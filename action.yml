@@ -11,8 +11,12 @@ inputs:
   redirect-to:
     description: 'Variable name to redirect CLI output'
     required: false
+  script:
+    description: 'Script to run in the container'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
     dest: ${{ inputs.redirect-to }}
+    script: ${{ inputs.script }}

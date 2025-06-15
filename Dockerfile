@@ -12,6 +12,9 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$
     curl -L https://dl.k8s.io/release/$KUBE_VERSION/bin/linux/$ARCHITECTURE/kubectl -o /usr/local/bin/kubectl && \
     chmod +x /usr/local/bin/kubectl && \
     rm -rf /var/cache/apk/*
+RUN apk add --no-cache --update \
+    jq \
+    && rm -rf /var/cache/apk/*
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["cluster-info"]
